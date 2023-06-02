@@ -1,29 +1,67 @@
-const boton = document.querySelector(".ingresar");
-const toast = document.querySelector(".toast");
-function resultado(min, max) {
-  let num = Math.round(Math.random() * (max - min) + min);
-  return num;
+const input = document.querySelector("#inputText");
+const btnencriptar = document.querySelector("#encriptar");
+const btndesencriptar = document.querySelector("#desencriptar");
+const result = document.querySelector("#resultText");
+const btncopiar = document.querySelector("#copy");
+const btnlimpiar = document.querySelector("#limpiar");
+
+function alerta(icono, message) {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    timer: 2000,
+  });
+
+  Toast.fire({
+    icon: icono,
+    title: message,
+  });
+  input.focus();
 }
 
-boton.addEventListener("click", () => {
-  boton.disabled = true;
-  const rst = resultado(1, 10);
-  console.log(rst)
-  if (rst % 2 == 0) {
-    toast.style.background = "#A5DC86";
-    toast.innerText = "Usuario encontrado";
+btnencriptar.addEventListener("click", () => {
+  const inputValue = input.value;
+  if (inputValue.length > 0) {
+    let changeText = inputValue
+      .replace(/e/g, "enter")
+      .replace(/i/g, "imes")
+      .replace(/a/g, "ai")
+      .replace(/o/g, "ober")
+      .replace(/u/g, "ufat");
+    result.innerHTML = changeText;
   } else {
-    toast.innerText = "Usuario no registrado";
-    toast.style.background = "salmon";
+    alerta("error", "Debe ingresar un texto");
   }
-  toast.style.display = "block";
-  toast.style.animation = "aparecer 1s forwards";
+});
 
-  setTimeout(() => {
-    toast.style.animation = "desaparecer 1s forwards";
-    setTimeout(() => {
-      toast.style.display = "none";
-    }, 1000);
-    boton.disabled = false;
-  }, 2000);
+btndesencriptar.addEventListener("click", () => {
+  const inputValue = input.value;
+  if (inputValue.length > 0) {
+    let changeText = inputValue
+      .replace(/enter/g, "e")
+      .replace(/imes/g, "i")
+      .replace(/ai/g, "a")
+      .replace(/ober/g, "o")
+      .replace(/ufat/g, "u");
+    result.innerHTML = changeText;
+  }else{
+    alerta("error", "Debe ingresar un texto");
+  }
+});
+
+btncopiar.addEventListener("click", () => {
+  if (result.length > 0) {
+    alerta("success", "Texto copiado");
+
+    let resultValue = result.value;
+    navigator.clipboard.writeText(resultValue);
+  } else {
+    alerta("error", "Debe encriptar o desencriptar algun texto primero");
+  }
+});
+
+btnlimpiar.addEventListener("click", () => {
+  input.focus();
+  input.value = "";
 });
