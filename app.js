@@ -4,6 +4,10 @@ const btndesencriptar = document.querySelector("#desencriptar");
 const result = document.querySelector("#resultText");
 const btncopiar = document.querySelector("#copy");
 const btnlimpiar = document.querySelector("#limpiar");
+const light = document.querySelector("#light");
+const dark = document.querySelector("#dark");
+const rst = document.querySelector("#rst")
+const header = document.querySelector("#header")
 
 function alerta(icono, message) {
   const Toast = Swal.mixin({
@@ -19,6 +23,38 @@ function alerta(icono, message) {
   });
   input.focus();
 }
+
+dark.addEventListener("click", () => {
+  document.body.classList.toggle('dark:bg-slate-800')
+  input.classList.toggle('dark:bg-slate-800')
+  input.classList.toggle('dark:text-stone-200')
+  result.classList.toggle('dark:bg-slate-900')
+  rst.classList.toggle('dark:bg-slate-900')
+  result.classList.toggle('dark:text-stone-200')
+  header.classList.toggle('brightness-90')
+  btndesencriptar.classList.toggle('dark:bg-slate-400')
+  btndesencriptar.classList.toggle('dark:text-slate-900')
+  btncopiar.classList.toggle('dark:text-slate-900')
+  btncopiar.classList.toggle('dark:bg-slate-400')
+  light.classList.toggle('hidden')
+  dark.classList.toggle('hidden')
+});
+
+light.addEventListener("click", () => {
+  document.body.classList.toggle('dark:bg-slate-800')
+  input.classList.toggle('dark:bg-slate-800')
+  input.classList.toggle('dark:text-stone-200')
+  result.classList.toggle('dark:bg-slate-900')
+  rst.classList.toggle('dark:bg-slate-900')
+  result.classList.toggle('dark:text-stone-200')
+  header.classList.toggle('brightness-90')
+  btndesencriptar.classList.toggle('dark:bg-slate-400')
+  btndesencriptar.classList.toggle('dark:text-slate-900')
+  btncopiar.classList.toggle('dark:text-slate-900')
+  btncopiar.classList.toggle('dark:bg-slate-400')
+  dark.classList.toggle('hidden')
+  light.classList.toggle('hidden')
+})
 
 btnencriptar.addEventListener("click", () => {
   const inputValue = input.value;
@@ -45,7 +81,7 @@ btndesencriptar.addEventListener("click", () => {
       .replace(/ober/g, "o")
       .replace(/ufat/g, "u");
     result.innerHTML = changeText;
-  }else{
+  } else {
     alerta("error", "Debe ingresar un texto");
   }
 });
