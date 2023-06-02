@@ -6,8 +6,13 @@ const btncopiar = document.querySelector("#copy");
 const btnlimpiar = document.querySelector("#limpiar");
 const light = document.querySelector("#light");
 const dark = document.querySelector("#dark");
-const rst = document.querySelector("#rst")
-const header = document.querySelector("#header")
+const rst = document.querySelector("#rst");
+const header = document.querySelector("#header");
+
+if(localStorage.getItem('theme') == 'true'){
+  darkMode()
+}
+
 
 function alerta(icono, message) {
   const Toast = Swal.mixin({
@@ -24,37 +29,59 @@ function alerta(icono, message) {
   input.focus();
 }
 
-dark.addEventListener("click", () => {
-  document.body.classList.toggle('dark:bg-slate-800')
-  input.classList.toggle('dark:bg-slate-800')
-  input.classList.toggle('dark:text-stone-200')
-  result.classList.toggle('dark:bg-slate-900')
-  rst.classList.toggle('dark:bg-slate-900')
-  result.classList.toggle('dark:text-stone-200')
-  header.classList.toggle('brightness-90')
-  btndesencriptar.classList.toggle('dark:bg-slate-400')
-  btndesencriptar.classList.toggle('dark:text-slate-900')
-  btncopiar.classList.toggle('dark:text-slate-900')
-  btncopiar.classList.toggle('dark:bg-slate-400')
-  light.classList.toggle('hidden')
+function darkMode() {
+  document.body.classList.add("dark:bg-slate-800");
+  document.body.classList.add("activado");
+  input.classList.add("dark:bg-slate-800");
+  input.classList.add("dark:text-stone-200");
+  result.classList.add("dark:bg-slate-900");
+  rst.classList.add("dark:bg-slate-900");
+  result.classList.add("dark:text-stone-200");
+  header.classList.add("brightness-90");
+  btndesencriptar.classList.add("dark:bg-slate-400");
+  btndesencriptar.classList.add("dark:text-slate-900");
+  btncopiar.classList.add("dark:text-slate-900");
+  btncopiar.classList.add("dark:bg-slate-400");
   dark.classList.toggle('hidden')
+  light.classList.toggle('hidden')
+}
+
+function lightMode() {
+  document.body.classList.remove("activado");
+  document.body.classList.remove("dark:bg-slate-800");
+  input.classList.remove("dark:bg-slate-800");
+  input.classList.remove("dark:text-stone-200");
+  result.classList.remove("dark:bg-slate-900");
+  rst.classList.remove("dark:bg-slate-900");
+  result.classList.remove("dark:text-stone-200");
+  header.classList.remove("brightness-90");
+  btndesencriptar.classList.remove("dark:bg-slate-400");
+  btndesencriptar.classList.remove("dark:text-slate-900");
+  btncopiar.classList.remove("dark:text-slate-900");
+  btncopiar.classList.remove("dark:bg-slate-400");
+  dark.classList.toggle('hidden')
+  light.classList.toggle('hidden')
+}
+
+dark.addEventListener("click", () => {
+  console.log('xd')
+  lightMode();
+  if (document.body.classList.contains("activado")) {
+    localStorage.setItem("theme", "true");
+  } else {
+    localStorage.setItem("theme", "false");
+  }
 });
 
 light.addEventListener("click", () => {
-  document.body.classList.toggle('dark:bg-slate-800')
-  input.classList.toggle('dark:bg-slate-800')
-  input.classList.toggle('dark:text-stone-200')
-  result.classList.toggle('dark:bg-slate-900')
-  rst.classList.toggle('dark:bg-slate-900')
-  result.classList.toggle('dark:text-stone-200')
-  header.classList.toggle('brightness-90')
-  btndesencriptar.classList.toggle('dark:bg-slate-400')
-  btndesencriptar.classList.toggle('dark:text-slate-900')
-  btncopiar.classList.toggle('dark:text-slate-900')
-  btncopiar.classList.toggle('dark:bg-slate-400')
-  dark.classList.toggle('hidden')
-  light.classList.toggle('hidden')
-})
+  console.log('dx')
+  darkMode();
+  if (document.body.classList.contains("activado")) {
+    localStorage.setItem("theme", "true");
+  } else {
+    localStorage.setItem("theme", "false");
+  }
+});
 
 btnencriptar.addEventListener("click", () => {
   const inputValue = input.value;
