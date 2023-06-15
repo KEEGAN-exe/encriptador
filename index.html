@@ -10,17 +10,17 @@
   </head>
   <body class="bg-blue-100 transition delay-100">
     <div id="header"
-      class="w-100 font-mono bg-sky-950 h-auto py-4 px-6 justify-between flex items-center text-2xl text-stone-50 lg:hidden transition delay-100">
+      class="w-100 font-mono bg-sky-950 h-auto py-4 px-6 justify-between flex items-center text-2xl text-stone-50 transition delay-100">
+      <p id="tittle"></p>
       <button id="light" class="transition delay-100">🌞</button>
       <button id="dark" class="hidden transition delay-100">🌚</button>
-      <p id="tittle"></p>
     </div>
-    <div class="flex items-center box-border flex-col px-4 py-4 ">
+    <div class="flex items-center box-border flex-col px-4 py-4 lg:mx-28">
       <div class="w-full">
         <textarea
           id="inputText"
           rows="13"
-          class="w-full resize-none bg-blue-100 px-5 py-5 text-2xl font-mono focus:outline-none transition delay-100"
+          class="w-full resize-none bg-blue-100 px-5 py-5 h-72 lg:h-[50%] text-2xl font-mono focus:outline-none transition delay-100"
           placeholder="Ingrese el texto aqui"
         ></textarea>
       </div>
@@ -41,11 +41,11 @@
       </div>
     </div>
     <div id="rst"
-      class="px-4 py-4 bg-stone-50 mx-4 my-2 min-h-80 rounded-lg drop-shadow-2xl transition delay-100"
+      class="px-4 py-4 bg-stone-50 mx-4 my-2 min-h-80 rounded-lg drop-shadow-2xl transition delay-100 lg:h-[50%] lg:mx-28"
     >
       <textarea
         id="resultText"
-        class="bg-stone-50 w-full resize-none px-5 py-5 h-56 font-mono focus:outline-none text-xl transition delay-100"
+        class="bg-stone-50 w-full resize-none px-5 py-5 h-40 font-mono focus:outline-none text-xl transition delay-100 lg:h-[350px]"
         readonly
       ></textarea>
       <button
@@ -59,7 +59,7 @@
   <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
   <script>
     new TypeIt("#tittle", {
-      strings: "Encriptador - Desencriptador",
+      strings: "Encriptador",
     }).go();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

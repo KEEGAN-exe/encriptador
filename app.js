@@ -114,7 +114,7 @@ btndesencriptar.addEventListener("click", () => {
 });
 
 btncopiar.addEventListener("click", () => {
-  if (result.length > 0) {
+  if (result.value.length > 0) {
     alerta("success", "Texto copiado");
 
     let resultValue = result.value;
