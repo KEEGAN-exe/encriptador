@@ -4,64 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<link rel="stylesheet" href="styles.css"> -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Linear+A&display=swap"
+      rel="stylesheet"
+    />
     <title>Encriptador</title>
   </head>
-  <body class="bg-blue-100 transition delay-100">
-    <div id="header"
-      class="w-100 font-mono bg-sky-950 h-auto py-4 px-6 justify-between flex items-center text-2xl text-stone-50 transition delay-100">
-      <p id="tittle"></p>
-      <button id="light" class="transition delay-100">🌞</button>
-      <button id="dark" class="hidden transition delay-100">🌚</button>
-    </div>
-    <div class="flex items-center box-border flex-col px-4 py-4 lg:mx-28">
-      <div class="w-full">
-        <textarea
-          id="inputText"
-          rows="13"
-          class="w-full resize-none bg-blue-100 px-5 py-5 h-72 lg:h-[50%] text-2xl font-mono focus:outline-none transition delay-100"
-          placeholder="Ingrese el texto aqui"
-        ></textarea>
-      </div>
-      <button id="limpiar" class="absolute right-7 lg:hidden " >🗑️</button>
-      <div class="w-full flex justify-between">
-        <button
-          id="encriptar"
-          class="text-xl border-sky-950 bg-sky-950 border-2 w-full mr-2 py-3 rounded-lg pointer text-stone-50 hover:brightness-90 hover:transition text-sky-900 font-medium transition delay-100"
-        >
-          Encriptar!
-        </button>
-        <button
-          id="desencriptar"
-          class="text-xl border-sky-900 border w-full ml-2 py-3 rounded-lg bg-slate-300 pointer hover:brightness-90 hover:transition text-sky-950 font-medium transition delay-100"
-        >
-          Desencriptar!
-        </button>
-      </div>
-    </div>
-    <div id="rst"
-      class="px-4 py-4 bg-stone-50 mx-4 my-2 min-h-80 rounded-lg drop-shadow-2xl transition delay-100 lg:h-[50%] lg:mx-28"
-    >
+  <body>
+    <main class="message-container">
       <textarea
-        id="resultText"
-        class="bg-stone-50 w-full resize-none px-5 py-5 h-40 font-mono focus:outline-none text-xl transition delay-100 lg:h-[350px]"
-        readonly
+        id="inputText"
+        class="input-area"
+        placeholder="Ingresar el texto a encriptar aqui..."
       ></textarea>
-      <button
-        id="copy"
-        class="text-xl border-sky-950 border bg-slate-300 w-full mr-2 py-3 rounded-lg pointer hover:brightness-90 hover:transition text-sky-950 font-medium transition delay-100"
-      >
-        Copiar
-      </button>
-    </div>
+      <div class="buttons-container">
+        <button id="encriptar" class="encript-button">Encriptar</button>
+        <button id="desencriptar" class="encript-button">Desencriptar</button>
+      </div>
+    </main>
+    <section class="response-container">
+      <article class="record" id="resultText">
+        <img src="/assets/Muñeco.png" alt="">
+        <span> Ningun mensaje encontrado </span>
+        <span>Ingrese el mensaje que desea encriptar o desencriptar</span>
+      </article>
+      <button id="copy" class="copy-button">Copiar</button>
+    </section>
   </body>
-  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-  <script>
-    new TypeIt("#tittle", {
-      strings: "Encriptador",
-    }).go();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
