@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/9177/9177572.png">
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,14 +21,20 @@
         class="input-area"
         placeholder="Ingresar el texto a encriptar aqui..."
       ></textarea>
-      <div class="buttons-container">
-        <button id="encriptar" class="encript-button">Encriptar</button>
-        <button id="desencriptar" class="encript-button">Desencriptar</button>
+      <div class="information">
+        <label class="info-label">
+          <img src="https://cdn-icons-png.flaticon.com/512/665/665049.png" alt="" class="info-img">
+          Solo se aceptan palabras en minusculas siguiendo la siguiente conversion: a = "ai", e = "enter", i = "imes", o = "ober", u = "ufat".
+        </label>
+        <section class="buttons-container">
+          <button id="encriptar" class="encript-button">Encriptar</button>
+          <button id="desencriptar" class="encript-button">Desencriptar</button>
+        </section>
       </div>
     </main>
     <section class="response-container">
       <article class="record" id="resultText">
-        <img src="/assets/Muñeco.png" alt="">
+        <img src="/assets/Muñeco.png" alt="" />
         <span> Ningun mensaje encontrado </span>
         <span>Ingrese el mensaje que desea encriptar o desencriptar</span>
       </article>

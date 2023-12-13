@@ -65,6 +65,23 @@ body{
   color: #1e3a8a;
 }
 
+.information{
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label{
+ display: flex;
+ font-size: 14px;
+ color: gray;
+ align-items: center;
+}
+
+.info-img{
+  width: 15px;
+  margin-right: 5px;
+}
+
 .copy-button{
   padding: 17px 0;
   margin: 11px 0;
